@@ -28,25 +28,22 @@ import { UPDATE_TASK_MUTATION } from "@/graphql/mutations";
 const EditTasks = () => {
   const [activeKey, setActiveKey] = useState<string | undefined>();
 
-  // use the list method to navigate to the list page of the tasks resource from the navigation hook
+  
   const { list } = useNavigation();
 
-  // create a modal form to edit a task using the useModalForm hook
-  // modalProps -> It's an instance of Modal that manages modal state and actions like onOk, onCancel, etc.
-  // close -> It's a function that closes the modal
-  // queryResult -> It's an instance of useQuery from react-query
+ 
   const { modalProps, close, queryResult } = useModalForm<Task>({
-    // specify the action to perform i.e., create or edit
+ 
     action: "edit",
-    // specify whether the modal should be visible by default
+ 
     defaultVisible: true,
-    // specify the gql mutation to be performed
+   
     meta: {
       gqlMutation: UPDATE_TASK_MUTATION,
     },
   });
 
-  // get the data of the task from the queryResult
+
   const { description, dueDate, users, title } = queryResult?.data?.data ?? {};
 
   const isLoading = queryResult?.isLoading ?? true;

@@ -25,7 +25,7 @@ type Props = {
 };
 
 export const UsersForm = ({ initialValues, cancelForm }: Props) => {
-  // use the useForm hook to manage the form to add users to a task (assign task to users)
+
   const { formProps, saveButtonProps } = useForm<
     GetFields<UpdateTaskMutation>,
     HttpError,
@@ -40,29 +40,29 @@ export const UsersForm = ({ initialValues, cancelForm }: Props) => {
     Pick<GetVariables<UpdateTaskMutationVariables>, "userIds">
   >({
     queryOptions: {
-      // disable the query to prevent fetching data on component mount
+      
       enabled: false,
     },
     redirect: false, // disable redirection
     onMutationSuccess: () => {
-      // when the mutation is successful, call the cancelForm function to close the form
+     
       cancelForm();
     },
-    // perform the mutation when the form is submitted
+  
     meta: {
       gqlMutation: UPDATE_TASK_MUTATION,
     },
   });
 
-  // use the useSelect hook to fetch the list of users from the server and display them in a select component
+  
   const { selectProps } = useSelect<GetFieldsFromList<UsersSelectQuery>>({
-    // specify the resource from which we want to fetch the data
+   
     resource: "users",
-    // specify the query that should be performed
+
     meta: {
       gqlQuery: USERS_SELECT_QUERY,
     },
-    // specify the label for the select component
+ 
     optionLabel: "name",
   });
 

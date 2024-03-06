@@ -30,9 +30,9 @@ const mapDeals = (
   deals: DealAggregate[] = [],
   state: string
 ): MappedDealData[] => {
-  // filter out deals that don't have a closeDateMonth or closeDateYear
+
   return deals.filter(filterDeal).map((deal) => {
-    // Get the closeDateMonth and closeDateYear from the deal
+  
     const { closeDateMonth, closeDateYear } = deal.groupBy as NonNullable<
       DealAggregate["groupBy"]
     >;
@@ -65,6 +65,6 @@ export const mapDealsData = (
   const lost = dealStages.find((stage) => stage.title === "LOST");
   const lostDeals = mapDeals(lost?.dealsAggregate, "Lost");
 
-  // Combine the won and lost deals and sort them by time
+  
   return [...wonDeals, ...lostDeals].sort((a, b) => a.timeUnix - b.timeUnix);
 };

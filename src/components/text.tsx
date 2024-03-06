@@ -63,8 +63,7 @@ const sizes = {
 
 export const Text = ({ size = "sm", children, ...rest }: TextProps) => {
   return (
-    // token is a term used by antd to refer to the design tokens like font size, font weight, color, etc
-    // https://ant.design/docs/react/customize-theme#customize-design-token
+    
     <ConfigProvider
       theme={{
         token: {
@@ -76,3 +75,5 @@ export const Text = ({ size = "sm", children, ...rest }: TextProps) => {
     </ConfigProvider>
   );
 };
+
+// https://ant.design/docs/react/customize-theme#customize-design-token

@@ -23,12 +23,13 @@ export const KanbanAddCardButton = ({
       icon={<PlusSquareOutlined className="md" />}
       style={{
         margin: "16px",
-        backgroundColor: "white",
+        backgroundColor: "lightgreen",
+        color: "green"
       }}
       onClick={onClick}
     >
       {children ?? (
-        <Text size="md" type="secondary">
+        <Text size="md" color="whitesmoke" type="secondary">
           Add new card
         </Text>
       )}

@@ -21,7 +21,7 @@ type UserProps = {
   users?: Task["users"];
 };
 
-// display a task's descriptio if it exists, otherwise display a link to add one
+
 export const DescriptionHeader = ({ description }: DescriptionProps) => {
   if (description) {
     return (
@@ -31,11 +31,11 @@ export const DescriptionHeader = ({ description }: DescriptionProps) => {
     );
   }
 
-  // if the task doesn't have a description, display a link to add one
+  
   return <Typography.Link>Add task description</Typography.Link>;
 };
 
-// display a task's due date if it exists, otherwise display a link to add one
+
 export const DueDateHeader = ({ dueData }: DueDateProps) => {
   if (dueData) {
     // get the color of the due date

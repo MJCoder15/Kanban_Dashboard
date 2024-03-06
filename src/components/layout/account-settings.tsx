@@ -30,12 +30,7 @@ export const AccountSettings = ({ opened, setOpened, userId }: Props) => {
     HttpError,
     GetVariables<UpdateUserMutationVariables>
   >({
-    /**
-     * mutationMode is used to determine how the mutation should be performed. For example, optimistic, pessimistic, undoable etc.
-     * optimistic -> redirection and UI updates are executed immediately as if the mutation is successful.
-     * pessimistic -> redirection and UI updates are executed after the mutation is successful.
-     * https://refine.dev/docs/advanced-tutorials/mutation-mode/#overview
-     */
+    
     mutationMode: "optimistic",
     
     resource: "users",

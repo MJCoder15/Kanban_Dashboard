@@ -21,32 +21,22 @@ type Props = {
 };
 
 export const DescriptionForm = ({ initialValues, cancelForm }: Props) => {
-  // use the useForm hook to manage the form
-  // formProps contains all the props that we need to pass to the form (initialValues, onSubmit, etc.)
-  // saveButtonProps contains all the props that we need to pass to the save button
   const { formProps, saveButtonProps } = useForm<
     GetFields<UpdateTaskMutation>,
     HttpError,
-    /**
-     * Pick is a utility type from typescript that allows you to create a new type from an existing type by picking some properties from it.
-     * https://www.typescriptlang.org/docs/handbook/utility-types.html#picktype-keys
-     *
-     * Pick<Type, Keys>
-     * Type -> the type from which we want to pick the properties
-     * Keys -> the properties that we want to pick
-     */
+   
     Pick<GetVariables<UpdateTaskMutationVariables>, "description">
   >({
     queryOptions: {
-      // we are disabling the query because we don't want to fetch the data on component mount.
-      enabled: false, // disable the query
+
+      enabled: false,
     },
-    redirect: false, // disable redirection
-    // when the mutation is successful, call the cancelForm function to close the form
+    redirect: false, 
+   
     onMutationSuccess: () => {
       cancelForm();
     },
-    // specify the mutation that should be performed
+   
     meta: {
       gqlMutation: UPDATE_TASK_MUTATION,
     },

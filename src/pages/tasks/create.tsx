@@ -8,7 +8,7 @@ import { Form, Input, Modal } from "antd";
 import { CREATE_TASK_MUTATION } from "@/graphql/mutations";
 
 const CreateTasks = () => {
-  // get search params from the url
+
   const [searchParams] = useSearchParams();
 
  
@@ -16,11 +16,11 @@ const CreateTasks = () => {
 
 
   const { formProps, modalProps, close } = useModalForm({
-    // specify the action to perform i.e., create or edit
+
     action: "create",
-    // specify whether the modal should be visible by default
+  
     defaultVisible: true,
-    // specify the gql mutation to be performed
+    
     meta: {
       gqlMutation: CREATE_TASK_MUTATION,
     },
